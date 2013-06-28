@@ -2,26 +2,5 @@ LIBRARY			"DebuggerInterface.dll"
 DESCRIPTION		'Unreal debugger DBGp interface'
 
 EXETYPE			NT
-CODE			PRELOAD DISCARDABLE
-DATA			WRITE
-
-EXPORTS
-				SetCallback @2
-				ShowDllForm @3
-				BuildHierarchy @4
-				ClearHierarchy @5
-				AddClassToHierarchy @6
-				ClearWatch @7
-				ClearAWatch @8
-				AddAWatch @9
-				LockList @10
-				UnlockList @11
-				AddBreakpoint @12
-				RemoveBreakpoint @13
-				EditorLoadClass @14
-				EditorGotoLine @15
-				AddLineToLog @16
-				CallStackClear @17
-				CallStackAdd @18
-				SetCurrentObjectName @19
-				DebugWindowState @20
+CODE         PRELOAD DISCARDABLE
+DATA         PRELOAD MULTIPLE
