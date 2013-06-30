@@ -4,6 +4,8 @@ import core.runtime;
 import core.sys.windows.windows;
 import core.sys.windows.dll;
 
+import std.conv;
+
 import unrealdbgp.system;
 import unrealdbgp.debugger.session;
 import unreal = unrealdbgp.debugger.unreal;
@@ -51,118 +53,117 @@ extern(C) export
 { 
 	void SetCallback( void* callbackFunc ) 
 	{
-		Info( "IF_UDK", "SetCallback" );
+		Info( "UDK_IF", "SetCallback" );
 		unrealState = new unreal.DebuggerState();
 		session = new DebuggerSession( unrealState );
-		//unrealState.SetCallback( callbackFunc );
+		unrealState.SetCallback( callbackFunc );
 	}
 
 	void ShowDllForm()
 	{
-		Info( "IF_UDK", "ShowDllForm" );
-		//unrealState.ShowDllForm();
+		Info( "UDK_IF", "ShowDllForm" );
+		unrealState.ShowDllForm();
 	}
 
 	void BuildHierarchy()
 	{
-		Info( "IF_UDK", "BuildHierarchy" );
-		//unrealState.BuildHierarchy();
+		Info( "UDK_IF", "BuildHierarchy" );
+		unrealState.BuildHierarchy();
 	}
 
 	void ClearHierarchy()
 	{
-		Info( "IF_UDK", "ClearHierarchy" );
-		//unrealState.ClearHierarchy();
+		Info( "UDK_IF", "ClearHierarchy" );
+		unrealState.ClearHierarchy();
 	}
 
 	void AddClassToHierarchy( const char* className )
 	{
-		Info( "IF_UDK", "AddClassToHierarchy" );
-		//unrealState.AddClassToHierarchy( className );
+		Info( "UDK_IF", "AddClassToHierarchy" );
+		unrealState.AddClassToHierarchy( to!string( className ) );
 	}
 
 	void ClearWatch( int watchType )
 	{
-		Info( "IF_UDK", "ClearWatch" );
-		//unrealState.ClearWatch( watchType );
+		Info( "UDK_IF", "ClearWatch" );
+		unrealState.ClearWatch( watchType );
 	}
 
 	void ClearAWatch( int watchType )
 	{
-		Info( "IF_UDK", "ClearAWatch" );
-		//unrealState.ClearAWatch( watchType );
+		Info( "UDK_IF", "ClearAWatch" );
+		unrealState.ClearAWatch( watchType );
 	}
 
 	int AddAWatch( int watchType, int parentIndex, const char* varName, const char* varValue )
 	{
-		Info( "IF_UDK", "AddAWatch" );
-		return 1;
-		//return unrealState.AddAWatch( watchType, parentIndex, varName, varValue );
+		Info( "UDK_IF", "AddAWatch" );
+		return unrealState.AddAWatch( watchType, parentIndex, to!string( varName ), to!string( varValue ) );
 	}
 
 	void LockList( int watchList )
 	{
-		Info( "IF_UDK", "LockList" );
-		//unrealState.LockList( watchList );
+		Info( "UDK_IF", "LockList" );
+		unrealState.LockList( watchList );
 	}
 
 	void UnlockList( int watchList )
 	{
-		Info( "IF_UDK", "UnlockList" );
-		//unrealState.UnlockList( watchList );
+		Info( "UDK_IF", "UnlockList" );
+		unrealState.UnlockList( watchList );
 	}
 
 	void AddBreakpoint( const char* className, int lineNo )
 	{
-		Info( "IF_UDK", "AddBreakpoint" );
-		//unrealState.AddBreakpoint( className, lineNo );
+		Info( "UDK_IF", "AddBreakpoint" );
+		unrealState.AddBreakpoint( to!string( className ), lineNo );
 	}
 
 	void RemoveBreakpoint( const char* className, int lineNo )
 	{
-		Info( "IF_UDK", "RemoveBreakpoint" );
-		//unrealState.RemoveBreakpoint( className, lineNo );
+		Info( "UDK_IF", "RemoveBreakpoint" );
+		unrealState.RemoveBreakpoint( to!string( className ), lineNo );
 	}
 
 	void EditorLoadClass( const char* className )
 	{
-		Info( "IF_UDK", "EditorLoadClass" );
-		//unrealState.EditorLoadClass( className );
+		Info( "UDK_IF", "EditorLoadClass" );
+		unrealState.EditorLoadClass( to!string( className ) );
 	}
 
 	void EditorGotoLine( int lineNo, int bHighlight )
 	{
-		Info( "IF_UDK", "EditorGotoLine" );
-		//unrealState.EditorGotoLine( lineNo, bHighlight );
+		Info( "UDK_IF", "EditorGotoLine" );
+		unrealState.EditorGotoLine( lineNo, bHighlight );
 	}
 
 	void AddLineToLog( const char* text )
 	{
-		Info( "IF_UDK", "AddLineToLog" );
-		//unrealState.AddLineToLog( text );
+		Info( "UDK_IF", "AddLineToLog" );
+		unrealState.AddLineToLog( to!string( text ) );
 	}
 
 	void CallStackClear()
 	{
-		Info( "IF_UDK", "CallStackClear" );
-		//unrealState.CallStackClear();
+		Info( "UDK_IF", "CallStackClear" );
+		unrealState.CallStackClear();
 	}
 
 	void CallStackAdd( const char* callStackEntry )
 	{
-		Info( "IF_UDK", "CallStackAdd" );
-		//unrealState.CallStackAdd( callStackEntry );
+		Info( "UDK_IF", "CallStackAdd" );
+		unrealState.CallStackAdd( to!string( callStackEntry ) );
 	}
 
 	void SetCurrentObjectName( const char* objectName )
 	{
-		Info( "IF_UDK", "SetCurrentObjectName" );
-		//unrealState.SetCurrentObjectName( objectName );
+		Info( "UDK_IF", "SetCurrentObjectName" );
+		unrealState.SetCurrentObjectName( to!string( objectName ) );
 	}
 
 	void DebugWindowState( int stateCode )
 	{
-		Info( "IF_UDK", "DebugWindowState" );
-		//unrealState.DebugWindowState( stateCode );
+		Info( "UDK_IF", "DebugWindowState" );
+		unrealState.DebugWindowState( stateCode );
 	}
 }

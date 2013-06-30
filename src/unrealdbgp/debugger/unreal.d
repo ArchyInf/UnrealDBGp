@@ -10,99 +10,99 @@ class DebuggerState
 
 	void SetCallback( void* callbackFunc )
 	{
-		Log( "SetCallback" );
+		
 		m_UnrealCallback = callbackFunc;
 	}
 
 	void ShowDllForm()
 	{
-		Log( "ShowDllForm" );
+		
 	}
 
 	void BuildHierarchy()
 	{
-		Log( "BuildHierarchy" );
+		
 	}
 
 	void ClearHierarchy()
 	{
-		Log( "ClearHierarchy" );
+		
 	}
 
-	void AddClassToHierarchy( const char* className )
+	void AddClassToHierarchy( string className )
 	{
-		Log( "AddClassToHierarchy" );
+		
 	}
 
 	void ClearWatch( int watchType )
 	{
-		Log( "ClearWatch" );
+		
 	}
 
 	void ClearAWatch( int watchType )
 	{
-		Log( "ClearAWatch" );
+		
 	}
 
-	int AddAWatch( int watchType, int parentINdex, const char* varName, const char* varValue )
+	int AddAWatch( int watchType, int parentINdex, string varName, string varValue )
 	{
-		Log( "AddAWatch" );
+		
 		return 0;
 	}
 
 	void LockList( int watchList )
 	{
-		Log( "LockList" );
+		
 	}
 
 	void UnlockList( int watchList )
 	{
-		Log( "UnlockList" );
+		
 	}
 
-	void AddBreakpoint( const char* className, int lineNo )
+	void AddBreakpoint( string className, int lineNo )
 	{
-		Log( "AddBreakpoint" );
+		
 	}
 
-	void RemoveBreakpoint( const char* className, int lineNo )
+	void RemoveBreakpoint( string className, int lineNo )
 	{
-		Log( "RemoveBreakpoint" );
+		
 	}
 
-	void EditorLoadClass( const char* className )
+	void EditorLoadClass( string className )
 	{
-		Log( "EditorLoadClass" );
+		
 	}
 
 	void EditorGotoLine( int lineNo, int highlight )
 	{
-		Log( "EditorGotoLine" );
+		
 	}
 
-	void AddLineToLog( const char* Text )
+	void AddLineToLog( string text )
 	{
-		Log( "AddLineToLog" );
+		Info( "UDK", text );
 	}
 
 	void CallStackClear()
 	{
-		Log( "CallStackClear" );
+		
 	}
 
-	void CallStackAdd( const char* CallStackEntry )
+	void CallStackAdd( string CallStackEntry )
 	{
-		Log( "CallStackAdd" );
+		
 	}
 
-	void SetCurrentObjectName( const char* objectName )
+	void SetCurrentObjectName( string objectName )
 	{
-		Log( "SetCurrentObjectName" );
+		
 	}
 
 	void DebugWindowState( int stateCode )
 	{
-		Log( "DebugWindowState" );
+		
 	}
 
 	private void Log( string message )
