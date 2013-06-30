@@ -16,7 +16,7 @@
     [
         {
             "name": "mingw-make",
-            "cmd": ["mingw32-make"],
+            "cmd": ["mingw32-make","all","install"],
             "working_dir": "${project_path}/build"
         }
     ]
