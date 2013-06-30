@@ -109,7 +109,7 @@ class DebuggerState
 	{
 		static if( LOG_UNREAL_IF )
 		{
-			Info( message );
+			Info( "IF_UDK", message );
 		}
 	}
 }
