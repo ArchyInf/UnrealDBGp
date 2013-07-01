@@ -9,17 +9,28 @@ __gshared LogFile theFile;
 
 static this()
 {
-	theFile = new LogFile(); 
+	if( !theFile )
+		theFile = new LogFile(); 
 }
 
 static ~this()
 {
-	theFile = null;
+	//theFile = null;
 }
 
 void Info( string moduleName, string message )
 {
 	theFile.Info( moduleName, message );
+}
+
+void Warn( string moduleName, string message )
+{
+	theFile.Warn( moduleName, message );
+}
+
+void LogError( string moduleName, string message )
+{
+	theFile.LogError( moduleName, message );
 }
 
 class LogFile
@@ -48,7 +59,7 @@ class LogFile
 		Log( "WARNING", moduleName, message );
 	}
 
-	void Error( string moduleName, string message )
+	void LogError( string moduleName, string message )
 	{
 		Log( "ERROR", moduleName, message );
 	}

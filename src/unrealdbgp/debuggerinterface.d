@@ -8,11 +8,13 @@ import std.conv;
 
 import unrealdbgp.system;
 import unrealdbgp.debugger.session;
-import unreal = unrealdbgp.debugger.unreal;
+import unrealdbgp.debugger.unreal;
 
 __gshared HINSTANCE g_hInst;
+
+// should be shared
 __gshared DebuggerSession session;
-__gshared unreal.DebuggerState unrealState;
+__gshared UnrealInterface unrealState;
 
 extern (Windows) BOOL DllMain(HINSTANCE hInstance, ULONG ulReason, LPVOID pvReserved) 
 {
@@ -54,8 +56,8 @@ extern(C) export
 	void SetCallback( void* callbackFunc ) 
 	{
 		Info( "UDK_IF", "SetCallback" );
-		unrealState = new unreal.DebuggerState();
-		session = new DebuggerSession( unrealState );
+		session = new DebuggerSession( );
+		unrealState = new UnrealInterface( session );
 		unrealState.SetCallback( callbackFunc );
 	}
 
@@ -68,25 +70,25 @@ extern(C) export
 	void BuildHierarchy()
 	{
 		Info( "UDK_IF", "BuildHierarchy" );
-		unrealState.BuildHierarchy();
+		//unrealState.BuildHierarchy();
 	}
 
 	void ClearHierarchy()
 	{
 		Info( "UDK_IF", "ClearHierarchy" );
-		unrealState.ClearHierarchy();
+		//unrealState.ClearHierarchy();
 	}
 
 	void AddClassToHierarchy( const char* className )
 	{
 		Info( "UDK_IF", "AddClassToHierarchy" );
-		unrealState.AddClassToHierarchy( to!string( className ) );
+		//unrealState.AddClassToHierarchy( to!string( className ) );
 	}
 
 	void ClearWatch( int watchType )
 	{
 		Info( "UDK_IF", "ClearWatch" );
-		unrealState.ClearWatch( watchType );
+		ClearAWatch( watchType );
 	}
 
 	void ClearAWatch( int watchType )
@@ -98,72 +100,72 @@ extern(C) export
 	int AddAWatch( int watchType, int parentIndex, const char* varName, const char* varValue )
 	{
 		Info( "UDK_IF", "AddAWatch" );
-		return unrealState.AddAWatch( watchType, parentIndex, to!string( varName ), to!string( varValue ) );
+		return 1;//unrealState.AddAWatch( watchType, parentIndex, to!string( varName ), to!string( varValue ) );
 	}
 
 	void LockList( int watchList )
 	{
 		Info( "UDK_IF", "LockList" );
-		unrealState.LockList( watchList );
+		//unrealState.LockList( watchList );
 	}
 
 	void UnlockList( int watchList )
 	{
 		Info( "UDK_IF", "UnlockList" );
-		unrealState.UnlockList( watchList );
+		//unrealState.UnlockList( watchList );
 	}
 
 	void AddBreakpoint( const char* className, int lineNo )
 	{
 		Info( "UDK_IF", "AddBreakpoint" );
-		unrealState.AddBreakpoint( to!string( className ), lineNo );
+		//unrealState.AddBreakpoint( to!string( className ), lineNo );
 	}
 
 	void RemoveBreakpoint( const char* className, int lineNo )
 	{
 		Info( "UDK_IF", "RemoveBreakpoint" );
-		unrealState.RemoveBreakpoint( to!string( className ), lineNo );
+		//unrealState.RemoveBreakpoint( to!string( className ), lineNo );
 	}
 
 	void EditorLoadClass( const char* className )
 	{
 		Info( "UDK_IF", "EditorLoadClass" );
-		unrealState.EditorLoadClass( to!string( className ) );
+		//unrealState.EditorLoadClass( to!string( className ) );
 	}
 
 	void EditorGotoLine( int lineNo, int bHighlight )
 	{
 		Info( "UDK_IF", "EditorGotoLine" );
-		unrealState.EditorGotoLine( lineNo, bHighlight );
+		//unrealState.EditorGotoLine( lineNo, bHighlight );
 	}
 
 	void AddLineToLog( const char* text )
 	{
 		Info( "UDK_IF", "AddLineToLog" );
-		unrealState.AddLineToLog( to!string( text ) );
+		//unrealState.AddLineToLog( to!string( text ) );
 	}
 
 	void CallStackClear()
 	{
 		Info( "UDK_IF", "CallStackClear" );
-		unrealState.CallStackClear();
+		//unrealState.CallStackClear();
 	}
 
 	void CallStackAdd( const char* callStackEntry )
 	{
 		Info( "UDK_IF", "CallStackAdd" );
-		unrealState.CallStackAdd( to!string( callStackEntry ) );
+		//unrealState.CallStackAdd( to!string( callStackEntry ) );
 	}
 
 	void SetCurrentObjectName( const char* objectName )
 	{
 		Info( "UDK_IF", "SetCurrentObjectName" );
-		unrealState.SetCurrentObjectName( to!string( objectName ) );
+		//unrealState.SetCurrentObjectName( to!string( objectName ) );
 	}
 
 	void DebugWindowState( int stateCode )
 	{
 		Info( "UDK_IF", "DebugWindowState" );
-		unrealState.DebugWindowState( stateCode );
+		//unrealState.DebugWindowState( stateCode );
 	}
 }

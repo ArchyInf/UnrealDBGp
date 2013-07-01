@@ -2,5 +2,5 @@ LIBRARY			"DebuggerInterface.dll"
 DESCRIPTION		'Unreal debugger DBGp interface'
 
 EXETYPE			NT
-CODE         PRELOAD DISCARDABLE
-DATA         PRELOAD MULTIPLE
+CODE         	PRELOAD DISCARDABLE
+DATA         	PRELOAD MULTIPLE

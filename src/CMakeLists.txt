@@ -14,6 +14,7 @@ ADD_LIBRARY (debuggerinterface SHARED
 				unrealdbgp/debugger/protocol.d
 				unrealdbgp/debugger/session.d
 				unrealdbgp/debugger/unreal.d
+				unrealdbgp/debugger/watch.d
 				unrealdbgp/net/connection.d
 				unrealdbgp/util/log.d
 			)
